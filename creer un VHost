@@ -1,0 +1,44 @@
+dans :  ~/www/ 
+
+mkdir italie
+
+cd /etc/apache2/sites-available/
+
+sudo nano italie.conf
+
+    <VirtualHost *:80>
+      ServerAdmin webmaster@monProjet
+      ServerName www.david.it
+      ServerAlias davidit
+      DocumentRoot /home/davidh/www/italie
+      <Directory /home/davidh/www/italie/>
+        AllowOverride All
+        Require all granted
+      </Directory>
+      ErrorLog /var/log/apache2/italie-error.log
+      LogLevel warn
+      CustomLog  /var/log/apache2/italie-access.log combined
+      ServerSignature Off
+    </VirtualHost>
+
+
+sudo a2ensite italie.conf
+
+systemctl reload apache2
+
+    cd /etc
+    nano hosts
+
+127.0.0.1 www.david.it
+
+/!\ ne pas oublier de creer l'index.php dans le dossier italie :
+
+touch index.php
+sudo nano index.php
+
+avec à l'interieur : 
+<?php
+echo '<h1> Italia !!!</h1>';
+?>
+
+

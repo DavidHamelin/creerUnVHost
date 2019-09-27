@@ -41,4 +41,4 @@ avec à l'interieur :
 echo '<h1> Italia !!!</h1>';
 ?>
 
-
+si erreur 403 forbidden : vérifier que l'on a bien un index.php
